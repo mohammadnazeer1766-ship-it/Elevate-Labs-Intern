@@ -1,18 +1,17 @@
 public class Main {
     public static void main(String[] args) {
+        Account acc = new Account("A101", 5000);
 
-        Library library = new Library();
+        acc.deposit(2500);
+        acc.withdraw(4000);
+        acc.withdraw(8000); // will show insufficient balance
 
-        library.addBook(new Book(1, "Java Programming"));
-        library.addBook(new Book(2, "OOP Concepts"));
+        System.out.println("Final Balance: " + acc.getBalance());
 
-        System.out.println("Books in Library:");
-        library.viewBooks();
-
-        library.issueBook(1);
-        library.issueBook(1); // trying again
-
-        library.returnBook(1);
-        library.returnBook(1); // trying again
+        System.out.println("\nTransaction History:");
+        for (String t : acc.getTransactionHistory()) {
+            System.out.println(t);
+        }
     }
 }
+
